@@ -39,4 +39,4 @@ buildNumber.properties
 *.iml
 
 # API Keys
-twitter.properties
+twitter4j.properties
