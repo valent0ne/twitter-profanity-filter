@@ -1,4 +1,4 @@
-package it.univaq.bigdata.twitterKafkaProducer.producer.callback;
+package it.univaq.bigdata.twitterprofanityfilter.twitterkafkaproducer.producer.callback;
 
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.RecordMetadata;
@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 public class BasicCallback implements Callback {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(it.univaq.bigdata.twitterKafkaProducer.producer.callback.BasicCallback.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(BasicCallback.class);
 
     @Override
     public void onCompletion(RecordMetadata metadata, Exception exception) {

@@ -1,15 +1,12 @@
-package it.univaq.bigdata.twitterSparkConsumer.config;
+package it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.util.Properties;
 
 public class SparkConfiguration {

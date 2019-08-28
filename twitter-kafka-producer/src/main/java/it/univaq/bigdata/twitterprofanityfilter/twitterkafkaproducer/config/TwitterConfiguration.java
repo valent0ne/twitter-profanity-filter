@@ -1,4 +1,4 @@
-package it.univaq.bigdata.twitterKafkaProducer.config;
+package it.univaq.bigdata.twitterprofanityfilter.twitterkafkaproducer.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,12 +10,12 @@ import java.util.Properties;
 public class TwitterConfiguration {
 
     private static Logger LOGGER = LoggerFactory
-            .getLogger(it.univaq.bigdata.twitterKafkaProducer.config.TwitterConfiguration.class);
+            .getLogger(TwitterConfiguration.class);
 
     private static Properties properties;
 
     public static void init() {
-        try (InputStream input = it.univaq.bigdata.twitterKafkaProducer.config.TwitterConfiguration.class
+        try (InputStream input = TwitterConfiguration.class
                 .getClassLoader().getResourceAsStream("twitter4j.properties")) {
 
             properties = new Properties();

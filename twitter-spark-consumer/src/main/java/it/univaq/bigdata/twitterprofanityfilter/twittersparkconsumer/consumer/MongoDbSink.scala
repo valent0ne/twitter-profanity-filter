@@ -1,9 +1,9 @@
-package it.univaq.bigdata.twitterSparkConsumer.consumer
+package it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.consumer
 
 import com.mongodb.client.MongoCollection
 import com.mongodb.spark.MongoConnector
 import com.mongodb.spark.config.WriteConfig
-import it.univaq.bigdata.twitterSparkConsumer.config.MongoDbConfiguration
+import it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config.MongoDbConfiguration
 import org.apache.spark.sql.{ForeachWriter, Row}
 import org.bson.Document
 

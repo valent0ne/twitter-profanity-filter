@@ -1,4 +1,4 @@
-package it.univaq.bigdata.twitterSparkConsumer.config;
+package it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ public class KafkaConfiguration {
     private static Properties properties;
 
     public static void init() {
-        try (InputStream input = it.univaq.bigdata.twitterSparkConsumer.config.KafkaConfiguration.class
+        try (InputStream input = KafkaConfiguration.class
                 .getClassLoader().getResourceAsStream("kafka.properties")) {
 
             properties = new Properties();

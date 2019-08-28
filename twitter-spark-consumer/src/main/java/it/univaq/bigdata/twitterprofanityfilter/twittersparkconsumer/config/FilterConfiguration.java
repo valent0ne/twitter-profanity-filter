@@ -1,4 +1,4 @@
-package it.univaq.bigdata.twitterSparkConsumer.config;
+package it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

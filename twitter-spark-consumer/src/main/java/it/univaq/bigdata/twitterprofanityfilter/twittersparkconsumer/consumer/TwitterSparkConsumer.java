@@ -1,8 +1,9 @@
-package it.univaq.bigdata.twitterSparkConsumer.consumer;
+package it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.consumer;
 
-import it.univaq.bigdata.twitterSparkConsumer.config.FilterConfiguration;
-import it.univaq.bigdata.twitterSparkConsumer.config.KafkaConfiguration;
-import it.univaq.bigdata.twitterSparkConsumer.config.SparkConfiguration;
+import it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config.FilterConfiguration;
+import it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config.KafkaConfiguration;
+import it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config.SparkConfiguration;
+import static it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config.FilterConfiguration.bannedWords;
 
 import org.apache.spark.sql.*;
 import org.apache.spark.sql.streaming.StreamingQuery;
@@ -12,6 +13,7 @@ import org.apache.spark.sql.types.StructType;
 import static org.apache.spark.sql.functions.*;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TwitterSparkConsumer {
@@ -67,7 +69,9 @@ public class TwitterSparkConsumer {
         Dataset<Row> filteredDf = inputDfAsJsonFlattened
                 .filter(inputDfAsJsonFlattened.col("lang").equalTo("en")
                         .and(not(inputDfAsJsonFlattened.col("text")
-                                .isin(FilterConfiguration.bannedWords.stream().toArray(String[]::new)))));
+                                .rlike("(^|\\s)("+String.join("|", bannedWords)+")(\\s|$)"))));
+
+        //df.filter((df.col1.rlike('(^|\s)(' + '|'.join(words) + ')(\s|$)') == False)).show()
 
 
         // Output the result to the console

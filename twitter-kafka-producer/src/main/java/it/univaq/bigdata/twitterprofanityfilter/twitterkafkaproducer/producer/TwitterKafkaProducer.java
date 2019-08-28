@@ -1,11 +1,10 @@
-package it.univaq.bigdata.twitterKafkaProducer.producer;
+package it.univaq.bigdata.twitterprofanityfilter.twitterkafkaproducer.producer;
 
-import it.univaq.bigdata.twitterKafkaProducer.producer.callback.BasicCallback;
+import it.univaq.bigdata.twitterprofanityfilter.twitterkafkaproducer.config.KafkaConfiguration;
+import it.univaq.bigdata.twitterprofanityfilter.twitterkafkaproducer.config.TwitterConfiguration;
+import it.univaq.bigdata.twitterprofanityfilter.twitterkafkaproducer.producer.callback.BasicCallback;
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
-
-import it.univaq.bigdata.twitterKafkaProducer.config.KafkaConfiguration;
-import it.univaq.bigdata.twitterKafkaProducer.config.TwitterConfiguration;
 
 
 import org.apache.kafka.clients.producer.*;
@@ -23,7 +22,7 @@ public class TwitterKafkaProducer {
     private Producer<Long, String> producer;
     private BasicCallback callback;
 
-    private static Logger LOGGER = LoggerFactory.getLogger(it.univaq.bigdata.twitterKafkaProducer.producer.TwitterKafkaProducer.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(TwitterKafkaProducer.class);
 
     public TwitterKafkaProducer() {
         callback = new BasicCallback();
@@ -68,18 +67,7 @@ public class TwitterKafkaProducer {
         TwitterStreamFactory tf = new TwitterStreamFactory(cb.build());
         TwitterStream twitterStream = tf.getInstance();
         twitterStream.addListener(listener);
-
-        //filter based on your choice of keywords
-        String[] keywordsArray = TwitterConfiguration.get("keywords").split(":");
-        // if no keywords are provided
-        if (keywordsArray.length <= 1) {
-            twitterStream.sample();
-        } else {
-            FilterQuery filter = new FilterQuery();
-            filter.track(keywordsArray);
-            twitterStream.filter(filter);
-        }
-
+        twitterStream.sample();
     }
 
 
@@ -133,7 +121,7 @@ public class TwitterKafkaProducer {
     // publish the passed tweet to a kafka topic
     private void publish(Status status) {
         String payload = TwitterObjectFactory.getRawJSON(status);
-        //LOGGER.info("Fetched tweet with id {}", status.getId());
+        LOGGER.info("Fetched tweet with id {}", status.getId());
         long key = status.getId();
         // build a record
         ProducerRecord<Long, String> record = new ProducerRecord<>(KafkaConfiguration.get("topic"), key, payload);
@@ -143,6 +131,6 @@ public class TwitterKafkaProducer {
         //producer.send(record, callback).get();
         // asynchronous publish
         producer.send(record, callback);
-        //LOGGER.info("Published tweet with id {}", status.getId());
+        LOGGER.info("Published tweet with id {}", status.getId());
     }
 }

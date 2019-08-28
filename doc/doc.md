@@ -46,7 +46,7 @@ demo: [https://youtu.be/it8cfjnOO9I](https://youtu.be/it8cfjnOO9I)
     2.1. [Kafka Producer](#kafka-producer)  
     2.2. [Spark Consumer](#adopted-technologies-rest-server)  
 
-3. [Deployment](#deployment)
+3. [Conclusions](#conclusions)
 
     
 <div style="page-break-after: always;"></div>
@@ -55,7 +55,7 @@ demo: [https://youtu.be/it8cfjnOO9I](https://youtu.be/it8cfjnOO9I)
 
 # Introduction <a name="introduction"></a>
 
-The goal of this project is to build an application that is capable of retrieving the twitter's tweet streaming, filter them, and store on a MongoDb database only the tweets that are written in english and do not contain a series of banned words (in this case the [Google's profanity words list](https://github.com/RobertJGabriel/Google-profanity-words/blob/master/list.txt)).
+The goal of this project is to build an application that is capable of retrieving the twitter's tweet streaming, filter them, and store on a MongoDb database only the tweets that are written in english and do not contain a series of banned words (in this case the [Google's profanity words list](https://www.freewebheaders.com/full-list-of-bad-words-banned-by-google/)).
 
 <div style="page-break-after: always;"></div>
 
@@ -135,8 +135,13 @@ A sink in spark is a class that performs some kind of processing on the input da
 
 <div style="page-break-after: always;"></div>
 
-[//]: # (================================= DEPLOYMENT ================================================)
+[//]: # (================================= CONCLUSIONS ================================================)
 
+# Conclusions <a name="conclusions"></a>
 
-# Deployment <a name="deployment"></a>
+By looking at the database we can see that we have about <b>10 insertion per second</b> and this seems right because:
+- we know that [there are obout 5800 tweets/s](https://www.omnicoreagency.com/twitter-statistics/)
+- we are only looking at tweets in english by using the <code>lang</code> property that is inferred by the Twitter's algorithms (so, alot of tweet may have this property as not defined)
+- we are filtering a list of 1703 super-common "bad" words (like "ugly", for example), and the <code>isin</code>   
+
 

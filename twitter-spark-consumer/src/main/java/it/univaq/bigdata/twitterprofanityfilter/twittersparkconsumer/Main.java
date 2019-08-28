@@ -1,10 +1,10 @@
-package it.univaq.bigdata.twitterSparkConsumer;
+package it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer;
 
-import it.univaq.bigdata.twitterSparkConsumer.config.MongoDbConfiguration;
-import it.univaq.bigdata.twitterSparkConsumer.config.FilterConfiguration;
-import it.univaq.bigdata.twitterSparkConsumer.config.KafkaConfiguration;
-import it.univaq.bigdata.twitterSparkConsumer.config.SparkConfiguration;
-import it.univaq.bigdata.twitterSparkConsumer.consumer.TwitterSparkConsumer;
+import it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config.FilterConfiguration;
+import it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config.MongoDbConfiguration;
+import it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config.KafkaConfiguration;
+import it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.config.SparkConfiguration;
+import it.univaq.bigdata.twitterprofanityfilter.twittersparkconsumer.consumer.TwitterSparkConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
  */
 public class Main {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(it.univaq.bigdata.twitterSparkConsumer.Main.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
 

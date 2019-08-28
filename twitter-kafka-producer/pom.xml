@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>it.univaq.bigdata</groupId>
-    <artifactId>twitterKafkaProducer</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>it.univaq.bigdata.twitter-profanity-filter</groupId>
+    <artifactId>twitter-kafka-producer</artifactId>
+    <version>1.0</version>
 
-    <name>twitterKafkaProducer</name>
+    <name>twitter-kafka-producer</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -76,7 +76,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>it.univaq.bigdata.twitterKafkaProducer.Main</mainClass>
+                            <mainClass>it.univaq.bigdata.twitterprofanityfilter.twitterkafkaproducer.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
