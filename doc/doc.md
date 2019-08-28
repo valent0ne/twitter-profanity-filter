@@ -138,7 +138,7 @@ A sink in Spark is a class that performs some kind of processing on the input da
 # Conclusions <a name="conclusions"></a>
 
 By looking at the database we can see that we have about <b>50 insertion per second</b> and this seems right because:
-- we know that [there are obout 5800 tweets/s](https://www.omnicoreagency.com/twitter-statistics/)
-- we are only looking at tweets in english by using the <code>lang</code> property that is inferred by the Twitter's algorithms (so, alot of tweets may have this property as not defined or are wrongly categorized)
-- we are filtering a list of 1703 common "bad" words (like "ugly", for example)   
+- we know that [there are obout 5800 tweets/s](https://www.omnicoreagency.com/twitter-statistics/) <b>but</b> the free access Twitter API ["returns a small random sample of all public statuses"](https://developer.twitter.com/en/docs/tweets/sample-realtime/overview/GET_statuse_sample): since the enterprise paid API ["delivers a 10% random sample of the realtime Twitter Firehose"](https://developer.twitter.com/en/docs/tweets/sample-realtime/overview/decahose), we can assume that our free access API samples an amount of tweets that is around the <b>3-5%</b> of the Twitter Firehose (about <b>300</b> tweets/s);
+- we are only looking at tweets in english by using the <code>lang</code> property that is inferred by the Twitter's algorithms (so, alot of tweets may have this property as not defined or are wrongly categorized);
+- we are filtering a list of 1703 common "bad" words (like "ugly", for example).
 
