@@ -71,8 +71,6 @@ public class TwitterSparkConsumer {
                         .and(not(inputDfAsJsonFlattened.col("text")
                                 .rlike("(^|\\s)("+String.join("|", bannedWords)+")(\\s|$)"))));
 
-        //df.filter((df.col1.rlike('(^|\s)(' + '|'.join(words) + ')(\s|$)') == False)).show()
-
 
         // Output the result to the console
         /*
