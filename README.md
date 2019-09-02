@@ -1,4 +1,4 @@
-# twitter-profanity-filter
+# Twitter Profanity Filter
 
 ## Introduction <a name="introduction"></a>
 
